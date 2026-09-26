@@ -1,0 +1,46 @@
+﻿services:
+  openobserverpingpongdemo:
+    image: openobserverpingpongdemo
+    build:
+      context: .
+      dockerfile: OpenObserverPingPongDemo/Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+  
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.161.0
+    container_name: otel-collector
+    
+    environment:
+      OPENOBSERVE_ENDPOINT: http://openobserve:5080/api/default
+      OPENOBSERVE_AUTH_TOKEN: ${OPENOBSERVE_AUTH_TOKEN}
+    
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    command:
+      - '--config'
+      - '/etc/otel-collector-config.yaml'
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    networks:
+      - app-network
+  
+  openobserve:
+    image: public.ecr.aws/zinclabs/openobserve:v1.0.4
+    ports:
+      - "5080:5080"
+    environment:
+      ZO_ROOT_USER_EMAIL: admin@example.com
+      ZO_ROOT_USER_PASSWORD: StrongPassword@123
+    volumes:
+      - ./openobserve-data:/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
