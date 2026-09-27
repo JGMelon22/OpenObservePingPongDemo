@@ -4,6 +4,7 @@
     <File Path="otel-collector-config.yaml" />
     <File Path=".env" />
     <File Path="dashboard/aspnetcore-otel-dashboard-simplificado.json" />
+    <File Path="README.md" />
    
   </Folder>
   <Project Path="OpenObserverPingPongDemo/OpenObserverPingPongDemo.csproj" />
