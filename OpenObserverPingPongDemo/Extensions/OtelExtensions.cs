@@ -6,20 +6,20 @@ namespace OpenObserverPingPongDemo.Extensions;
 
 public static class OtelExtensions
 {
-    public static void AddOpenTelemetryServices(this WebApplicationBuilder builder)
+    public static void AddOpenTelemetryServices(this IServiceCollection services)
     {
-        builder.Services.AddOpenTelemetry()
-            .ConfigureResource(resource => resource
-                .AddService(serviceName: "OpenObserverPingPongDemo", serviceVersion: "1.0.0"))
-            .WithTracing(tracing => tracing
-                .AddAspNetCoreInstrumentation()
-                .AddHttpClientInstrumentation()
-                .AddOtlpExporter())
-            .WithMetrics(metrics => metrics
-                .AddAspNetCoreInstrumentation()
-                .AddHttpClientInstrumentation()
-                .AddRuntimeInstrumentation()
-                .AddProcessInstrumentation()
-                .AddOtlpExporter());
+        services.AddOpenTelemetry()
+             .ConfigureResource(resource => resource
+                 .AddService(serviceName: "OpenObserverPingPongDemo", serviceVersion: "1.0.0"))
+             .WithTracing(tracing => tracing
+                 .AddAspNetCoreInstrumentation()
+                 .AddHttpClientInstrumentation()
+                 .AddOtlpExporter())
+             .WithMetrics(metrics => metrics
+                 .AddAspNetCoreInstrumentation()
+                 .AddHttpClientInstrumentation()
+                 .AddRuntimeInstrumentation()
+                 .AddProcessInstrumentation()
+                 .AddOtlpExporter());
     }
 }
