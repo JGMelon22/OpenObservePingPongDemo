@@ -1,11 +1,11 @@
 {
   "version": 8,
-  "dashboardId": "7509975345613767100",
+  "dashboardId": "7509979918223015936",
   "title": "ASP .NET Core Otel - Simplificado",
   "description": "Versao enxuta: RED metrics + saude do processo/runtime .NET",
   "role": "",
   "owner": "admin@example.com",
-  "created": "2026-09-27T14:00:50.978Z",
+  "created": "2026-09-27T14:19:01.174Z",
   "tabs": [
     {
       "tabId": "default",
@@ -21,8 +21,14 @@
             "legends_position": null,
             "unit": "ops",
             "decimals": 2,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -36,12 +42,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "req/s" }
+              "config": {
+                "promql_legend": "req/s"
+              }
             }
           ],
-          "layout": { "x": 0, "y": 0, "w": 12, "h": 6, "i": 1 }
+          "layout": {
+            "x": 0,
+            "y": 0,
+            "w": 48,
+            "h": 8,
+            "i": 1
+          }
         },
         {
           "id": "panel_2",
@@ -53,8 +71,14 @@
             "legends_position": null,
             "unit": "percent",
             "decimals": 2,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -68,12 +92,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "erro %" }
+              "config": {
+                "promql_legend": "erro %"
+              }
             }
           ],
-          "layout": { "x": 12, "y": 0, "w": 12, "h": 6, "i": 2 }
+          "layout": {
+            "x": 48,
+            "y": 0,
+            "w": 48,
+            "h": 8,
+            "i": 2
+          }
         },
         {
           "id": "panel_3",
@@ -85,8 +121,14 @@
             "legends_position": null,
             "unit": "seconds",
             "decimals": 3,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -100,12 +142,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "p95" }
+              "config": {
+                "promql_legend": "p95"
+              }
             }
           ],
-          "layout": { "x": 24, "y": 0, "w": 12, "h": 6, "i": 3 }
+          "layout": {
+            "x": 96,
+            "y": 0,
+            "w": 48,
+            "h": 8,
+            "i": 3
+          }
         },
         {
           "id": "panel_4",
@@ -117,8 +171,14 @@
             "legends_position": null,
             "unit": "none",
             "decimals": 0,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -132,12 +192,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "ativas" }
+              "config": {
+                "promql_legend": "ativas"
+              }
             }
           ],
-          "layout": { "x": 36, "y": 0, "w": 12, "h": 6, "i": 4 }
+          "layout": {
+            "x": 144,
+            "y": 0,
+            "w": 48,
+            "h": 8,
+            "i": 4
+          }
         },
         {
           "id": "panel_5",
@@ -149,8 +221,14 @@
             "legends_position": "bottom",
             "unit": "ops",
             "decimals": 2,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -164,12 +242,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "{http_route}" }
+              "config": {
+                "promql_legend": "{http_route}"
+              }
             }
           ],
-          "layout": { "x": 0, "y": 6, "w": 24, "h": 7, "i": 5 }
+          "layout": {
+            "x": 0,
+            "y": 8,
+            "w": 96,
+            "h": 10,
+            "i": 5
+          }
         },
         {
           "id": "panel_6",
@@ -181,8 +271,14 @@
             "legends_position": "bottom",
             "unit": "seconds",
             "decimals": 3,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -196,9 +292,15 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "p50" }
+              "config": {
+                "promql_legend": "p50"
+              }
             },
             {
               "query": "histogram_quantile(0.95, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
@@ -210,9 +312,15 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "p95" }
+              "config": {
+                "promql_legend": "p95"
+              }
             },
             {
               "query": "histogram_quantile(0.99, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
@@ -224,12 +332,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "p99" }
+              "config": {
+                "promql_legend": "p99"
+              }
             }
           ],
-          "layout": { "x": 24, "y": 6, "w": 24, "h": 7, "i": 6 }
+          "layout": {
+            "x": 96,
+            "y": 8,
+            "w": 96,
+            "h": 10,
+            "i": 6
+          }
         },
         {
           "id": "panel_7",
@@ -241,8 +361,14 @@
             "legends_position": null,
             "unit": "none",
             "decimals": 0,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -256,12 +382,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "conexões ativas" }
+              "config": {
+                "promql_legend": "conexões ativas"
+              }
             }
           ],
-          "layout": { "x": 0, "y": 13, "w": 24, "h": 7, "i": 7 }
+          "layout": {
+            "x": 0,
+            "y": 18,
+            "w": 96,
+            "h": 10,
+            "i": 7
+          }
         },
         {
           "id": "panel_8",
@@ -273,8 +411,14 @@
             "legends_position": "bottom",
             "unit": "seconds",
             "decimals": 3,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -288,12 +432,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "{server_address}" }
+              "config": {
+                "promql_legend": "{server_address}"
+              }
             }
           ],
-          "layout": { "x": 24, "y": 13, "w": 24, "h": 7, "i": 8 }
+          "layout": {
+            "x": 96,
+            "y": 18,
+            "w": 96,
+            "h": 10,
+            "i": 8
+          }
         },
         {
           "id": "panel_9",
@@ -305,8 +461,14 @@
             "legends_position": "bottom",
             "unit": "none",
             "decimals": 3,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -320,12 +482,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "{process_cpu_state}" }
+              "config": {
+                "promql_legend": "{process_cpu_state}"
+              }
             }
           ],
-          "layout": { "x": 0, "y": 20, "w": 24, "h": 7, "i": 9 }
+          "layout": {
+            "x": 0,
+            "y": 28,
+            "w": 96,
+            "h": 10,
+            "i": 9
+          }
         },
         {
           "id": "panel_10",
@@ -337,8 +511,14 @@
             "legends_position": "bottom",
             "unit": "bytes",
             "decimals": 2,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -352,9 +532,15 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "memória física" }
+              "config": {
+                "promql_legend": "memória física"
+              }
             },
             {
               "query": "sum(process_memory_virtual)",
@@ -366,12 +552,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "memória virtual" }
+              "config": {
+                "promql_legend": "memória virtual"
+              }
             }
           ],
-          "layout": { "x": 24, "y": 20, "w": 24, "h": 7, "i": 10 }
+          "layout": {
+            "x": 96,
+            "y": 28,
+            "w": 96,
+            "h": 10,
+            "i": 10
+          }
         },
         {
           "id": "panel_11",
@@ -383,8 +581,14 @@
             "legends_position": null,
             "unit": "bytes",
             "decimals": 2,
-            "base_map": { "type": "osm" },
-            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+            "base_map": {
+              "type": "osm"
+            },
+            "map_view": {
+              "zoom": 1,
+              "lat": 0,
+              "lng": 0
+            }
           },
           "queryType": "promql",
           "queries": [
@@ -398,12 +602,24 @@
                 "x": [],
                 "y": [],
                 "z": [],
-                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+                "filter": {
+                  "filterType": "group",
+                  "logicalOperator": "AND",
+                  "conditions": []
+                }
               },
-              "config": { "promql_legend": "alocação/s" }
+              "config": {
+                "promql_legend": "alocação/s"
+              }
             }
           ],
-          "layout": { "x": 0, "y": 27, "w": 48, "h": 7, "i": 11 }
+          "layout": {
+            "x": 0,
+            "y": 38,
+            "w": 192,
+            "h": 10,
+            "i": 11
+          }
         }
       ]
     }
