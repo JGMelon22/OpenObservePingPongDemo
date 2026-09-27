@@ -3,6 +3,8 @@
     <File Path="compose.yaml" />
     <File Path="otel-collector-config.yaml" />
     <File Path=".env" />
+    <File Path="dashboard/aspnetcore-otel-dashboard-simplificado.json" />
+   
   </Folder>
   <Project Path="OpenObserverPingPongDemo/OpenObserverPingPongDemo.csproj" />
 </Solution>

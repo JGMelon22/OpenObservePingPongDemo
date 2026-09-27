@@ -1,0 +1,419 @@
+{
+  "version": 8,
+  "dashboardId": "7509975345613767100",
+  "title": "ASP .NET Core Otel - Simplificado",
+  "description": "Versao enxuta: RED metrics + saude do processo/runtime .NET",
+  "role": "",
+  "owner": "admin@example.com",
+  "created": "2026-09-27T14:00:50.978Z",
+  "tabs": [
+    {
+      "tabId": "default",
+      "name": "Default",
+      "panels": [
+        {
+          "id": "panel_1",
+          "type": "metric",
+          "title": "Taxa de Requisições",
+          "description": "Requisições HTTP por segundo, somando todas as rotas.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "ops",
+            "decimals": 2,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(rate(http_server_request_duration_count[5m]))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_count",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "req/s" }
+            }
+          ],
+          "layout": { "x": 0, "y": 0, "w": 12, "h": 6, "i": 1 }
+        },
+        {
+          "id": "panel_2",
+          "type": "metric",
+          "title": "Taxa de Erros (5xx)",
+          "description": "Percentual de respostas 5xx em relação ao total de requisições.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "percent",
+            "decimals": 2,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "100 * sum(rate(http_server_request_duration_count{http_response_status_code=~\"5..\"}[5m])) / sum(rate(http_server_request_duration_count[5m]))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_count",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "erro %" }
+            }
+          ],
+          "layout": { "x": 12, "y": 0, "w": 12, "h": 6, "i": 2 }
+        },
+        {
+          "id": "panel_3",
+          "type": "metric",
+          "title": "Latência P95 (geral)",
+          "description": "95º percentil de duração das requisições HTTP, todas as rotas.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "seconds",
+            "decimals": 3,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "histogram_quantile(0.95, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_bucket",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "p95" }
+            }
+          ],
+          "layout": { "x": 24, "y": 0, "w": 12, "h": 6, "i": 3 }
+        },
+        {
+          "id": "panel_4",
+          "type": "metric",
+          "title": "Requisições Ativas",
+          "description": "Número de requisições HTTP em processamento neste momento.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "none",
+            "decimals": 0,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(http_server_active_requests)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_active_requests",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "ativas" }
+            }
+          ],
+          "layout": { "x": 36, "y": 0, "w": 12, "h": 6, "i": 4 }
+        },
+        {
+          "id": "panel_5",
+          "type": "line",
+          "title": "Taxa de Requisições por Rota",
+          "description": "http.server.request.duration (count) — throughput por http.route.",
+          "config": {
+            "show_legends": true,
+            "legends_position": "bottom",
+            "unit": "ops",
+            "decimals": 2,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(rate(http_server_request_duration_count[5m])) by (http_route)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_count",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "{http_route}" }
+            }
+          ],
+          "layout": { "x": 0, "y": 6, "w": 24, "h": 7, "i": 5 }
+        },
+        {
+          "id": "panel_6",
+          "type": "line",
+          "title": "Latência HTTP Server (p50 / p95 / p99)",
+          "description": "Percentis de duração das requisições, calculados a partir do histograma http.server.request.duration.",
+          "config": {
+            "show_legends": true,
+            "legends_position": "bottom",
+            "unit": "seconds",
+            "decimals": 3,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "histogram_quantile(0.50, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_bucket",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "p50" }
+            },
+            {
+              "query": "histogram_quantile(0.95, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_bucket",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "p95" }
+            },
+            {
+              "query": "histogram_quantile(0.99, sum(rate(http_server_request_duration_bucket[5m])) by (le))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_server_request_duration_bucket",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "p99" }
+            }
+          ],
+          "layout": { "x": 24, "y": 6, "w": 24, "h": 7, "i": 6 }
+        },
+        {
+          "id": "panel_7",
+          "type": "line",
+          "title": "Kestrel: Conexões Ativas",
+          "description": "Número de conexões TCP ativas no Kestrel.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "none",
+            "decimals": 0,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(kestrel_active_connections)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "kestrel_active_connections",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "conexões ativas" }
+            }
+          ],
+          "layout": { "x": 0, "y": 13, "w": 24, "h": 7, "i": 7 }
+        },
+        {
+          "id": "panel_8",
+          "type": "line",
+          "title": "HttpClient: Latência p95",
+          "description": "95º percentil de duração das chamadas HTTP saintes, por servidor de destino.",
+          "config": {
+            "show_legends": true,
+            "legends_position": "bottom",
+            "unit": "seconds",
+            "decimals": 3,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "histogram_quantile(0.95, sum(rate(http_client_request_duration_bucket[5m])) by (le, server_address))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "http_client_request_duration_bucket",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "{server_address}" }
+            }
+          ],
+          "layout": { "x": 24, "y": 13, "w": 24, "h": 7, "i": 8 }
+        },
+        {
+          "id": "panel_9",
+          "type": "line",
+          "title": "Processo: Uso de CPU",
+          "description": "Tempo de CPU consumido pelo processo, em núcleos, separado por estado (user/system).",
+          "config": {
+            "show_legends": true,
+            "legends_position": "bottom",
+            "unit": "none",
+            "decimals": 3,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(rate(process_cpu_time[5m])) by (process_cpu_state)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "process_cpu_time",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "{process_cpu_state}" }
+            }
+          ],
+          "layout": { "x": 0, "y": 20, "w": 24, "h": 7, "i": 9 }
+        },
+        {
+          "id": "panel_10",
+          "type": "line",
+          "title": "Processo: Uso de Memória",
+          "description": "Memória física (working set) e virtual usada pelo processo.",
+          "config": {
+            "show_legends": true,
+            "legends_position": "bottom",
+            "unit": "bytes",
+            "decimals": 2,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(process_memory_usage)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "process_memory_usage",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "memória física" }
+            },
+            {
+              "query": "sum(process_memory_virtual)",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "process_memory_virtual",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "memória virtual" }
+            }
+          ],
+          "layout": { "x": 24, "y": 20, "w": 24, "h": 7, "i": 10 }
+        },
+        {
+          "id": "panel_11",
+          "type": "line",
+          "title": ".NET Runtime: Taxa de Alocação (GC)",
+          "description": "Bytes alocados no heap gerenciado por segundo. Picos sustentados indicam pressão de alocação / candidato a otimização.",
+          "config": {
+            "show_legends": false,
+            "legends_position": null,
+            "unit": "bytes",
+            "decimals": 2,
+            "base_map": { "type": "osm" },
+            "map_view": { "zoom": 1, "lat": 0, "lng": 0 }
+          },
+          "queryType": "promql",
+          "queries": [
+            {
+              "query": "sum(rate(process_runtime_dotnet_gc_allocations_size[5m]))",
+              "vrlFunctionQuery": null,
+              "customQuery": true,
+              "fields": {
+                "stream": "process_runtime_dotnet_gc_allocations_size",
+                "stream_type": "metrics",
+                "x": [],
+                "y": [],
+                "z": [],
+                "filter": { "filterType": "group", "logicalOperator": "AND", "conditions": [] }
+              },
+              "config": { "promql_legend": "alocação/s" }
+            }
+          ],
+          "layout": { "x": 0, "y": 27, "w": 48, "h": 7, "i": 11 }
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "list": [],
+    "showDynamicFilters": true
+  },
+  "defaultDatetimeDuration": {
+    "type": "relative",
+    "relativeTimePeriod": "15m"
+  }
+}
