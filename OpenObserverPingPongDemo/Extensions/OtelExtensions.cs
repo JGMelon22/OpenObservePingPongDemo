@@ -10,7 +10,7 @@ public static class OtelExtensions
     {
         builder.Services.AddOpenTelemetry()
             .ConfigureResource(resource => resource
-                .AddService(serviceName: "openobserver-pingpong-demo", serviceVersion: "1.0.0"))
+                .AddService(serviceName: "OpenObserverPingPongDemo", serviceVersion: "1.0.0"))
             .WithTracing(tracing => tracing
                 .AddAspNetCoreInstrumentation()
                 .AddHttpClientInstrumentation()

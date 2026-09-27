@@ -9,6 +9,8 @@
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+    networks:
+      - app-network
   
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.161.0
