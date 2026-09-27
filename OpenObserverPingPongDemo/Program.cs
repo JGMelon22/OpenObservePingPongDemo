@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.AddOpenTelemetryServices();
+// builder.AddOpenTelemetryServices();
 
 var app = builder.Build();
 
