@@ -47,7 +47,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
    - **Body**:
      ```json
      {
-       "play": "ping"
+       "Ping": "ping"
      }
      ```
    - **Resposta esperada**: `"pong"`
@@ -78,8 +78,13 @@ Rastreamento distribuído das requisições enviadas ao serviço `OpenObserverPi
 
 ![Traces no OpenObserve](./docs/screenshots/traces.png)
 
-### Metrics
+### Logs
 
+Visualização dos logs estruturados gerados pela aplicação ASP.NET Core e enviados ao OpenObserve através do OpenTelemetry Collector:
+
+![Logs no OpenObserve](./docs/screenshots/logs.png)
+
+### Metrics
 Explorador de métricas do OpenTelemetry em tempo real (`aspnetcore_memory_pool_pooled`, `dns_lookup_duration_bucket`, etc.):
 
 ![Metrics no OpenObserve](./docs/screenshots/metrics.png)
@@ -88,3 +93,4 @@ Explorador de métricas do OpenTelemetry em tempo real (`aspnetcore_memory_pool_
 
 - [OpenObserve - .NET OpenTelemetry Guide](https://openobserve.ai/opentelemetry/dotnet/)
 - [OpenObserve - OpenTelemetry Collector Configuration](https://openobserve.ai/opentelemetry/collector/)
+- [Implementing OpenTelemetry Logging in .NET Applications with OpenObserve](https://openobserve.ai/blog/opentelemetry-logging-in-dotnet-applications/)

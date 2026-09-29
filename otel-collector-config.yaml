@@ -32,13 +32,17 @@ extensions:
     endpoint: 0.0.0.0:13133
 
 service:
-  extensions: [health_check]
+  extensions: [ health_check ]
   pipelines:
     traces:
-      receivers: [otlp]
-      processors: [memory_limiter, batch]
-      exporters: [otlphttp/openobserve]
+      receivers: [ otlp ]
+      processors: [ memory_limiter, batch ]
+      exporters: [ otlphttp/openobserve ]
     metrics:
-      receivers: [otlp, hostmetrics]
-      processors: [memory_limiter, batch]
-      exporters: [otlphttp/openobserve]
+      receivers: [ otlp, hostmetrics ]
+      processors: [ memory_limiter, batch ]
+      exporters: [ otlphttp/openobserve ]
+    logs:
+      receivers: [ otlp ]
+      processors: [ memory_limiter, batch ]
+      exporters: [ otlphttp/openobserve ]
