@@ -25,9 +25,8 @@ Passo a passo:
 5. Crie um arquivo `.env` na raiz do projeto com o exemplo abaixo:
 
 ```env
-OPENOBSERVE_ENDPOINT=http://localhost:5080/api/default/
-OPENOBSERVE_AUTH_BASE64=dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA==
-OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+OPENOBSERVE_ENDPOINT=http://openobserve:5080/api/default
+OPENOBSERVE_AUTH_TOKEN=YourOpenObserveBase64
 ```
 
 ## Como executar o projeto
