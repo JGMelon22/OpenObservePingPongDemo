@@ -7,5 +7,6 @@
     <File Path="README.md" />
    
   </Folder>
+  <Project Path="OpenObserverPingPongDemo.API.UnitTests/OpenObserverPingPongDemo.API.UnitTests.csproj" />
   <Project Path="OpenObserverPingPongDemo/OpenObserverPingPongDemo.csproj" />
 </Solution>

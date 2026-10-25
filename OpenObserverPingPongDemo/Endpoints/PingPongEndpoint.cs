@@ -12,22 +12,30 @@ public static class PingPongEndpoint
         group.MapPost("", SendPingReturnPong);
     }
 
-    private static IResult SendPingReturnPong(PingPong ping,
+    internal static IResult SendPingReturnPong(PingPong ping,
         [FromServices] ILoggerFactory loggerFactory)
     {
-        ILogger logger = loggerFactory.CreateLogger("PingPongEndpoint"); // Due to static nature and Minimal API behavior
+        ILogger
+            logger = loggerFactory.CreateLogger("PingPongEndpoint"); // Due to static nature and Minimal API behavior
 
-        logger.LogInformation(
-            "Received ping request with message {Message}",
-            ping.Ping);
+        try
+        {
+            var result = ping.Pong();
 
-        var result = ping.Pong();
+            logger.LogInformation(
+                "PingPong request completed: {Ping} -> {Pong}",
+                ping.Ping,
+                result);
 
-        logger.LogInformation(
-            "PingPong request completed: {Ping} -> {Pong}",
-            ping.Ping,
-            result);
+            logger.LogInformation(
+                "Received ping request with message {Message}",
+                ping.Ping);
 
-        return Results.Ok(result);
+            return Results.Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return Results.BadRequest(ex.Message);
+        }
     }
 }
